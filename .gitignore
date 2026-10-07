@@ -1,0 +1,30 @@
+# C++ executables and compiled files
+*.exe
+*.o
+*.obj
+*.out
+
+# CMake / Crow build directory
+backend/build/
+build/
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+build.ninja
+.ninja_deps
+.ninja_log
+
+# VS Code settings
+.vscode/
+
+# Private user data
+users.txt
+login_history.txt
+notes_*.txt
+note_*.txt
+
+# Temporary files
+*.tmp
+*.log
+.DS_Store
+Thumbs.db

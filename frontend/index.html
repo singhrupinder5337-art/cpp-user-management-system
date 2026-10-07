@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Account Management</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="app">
+
+  <header class="header">
+    <a class="logo" href="#" id="logoLink"><span class="logo-mark">A</span> Account</a>
+  </header>
+
+  <main class="main-content">
+
+    <!-- WELCOME -->
+    <section id="welcomeView" class="view active">
+      <div class="auth-card welcome">
+        <div class="logo-mark big">A</div>
+        <h1>C++ User Account Management System</h1>
+        <p class="sub">Log in to your account or create a new one.</p>
+        <button id="heroLoginBtn" class="primary-btn full">Log in</button>
+        <button id="heroSignupBtn" class="secondary-btn full">Sign up</button>
+      </div>
+    </section>
+
+    <!-- LOGIN -->
+    <section id="loginView" class="view">
+      <div class="auth-card">
+        <h1>Log in</h1>
+        <p class="sub">Welcome back. Enter your details to continue.</p>
+        <form id="loginForm" novalidate>
+          <div class="field">
+            <label for="loginUsername">Username</label>
+            <input type="text" id="loginUsername" autocomplete="username" required>
+          </div>
+          <div class="field">
+            <label for="loginPassword">Password</label>
+            <div class="pw">
+              <input type="password" id="loginPassword" autocomplete="current-password" required>
+              <button type="button" class="toggle-pw" aria-label="Show password">Show</button>
+            </div>
+          </div>
+          <div class="form-options">
+            <label class="remember"><input type="checkbox" id="rememberMe"> Remember me</label>
+            <button type="button" id="forgotFromLogin" class="link-btn">Forgot password?</button>
+          </div>
+          <button type="submit" class="primary-btn full">Log in</button>
+        </form>
+        <p id="loginMessage" class="message" role="alert"></p>
+        <p class="switch-text"><button id="backFromLogin" class="link-btn">Back</button></p>
+        <p class="switch-text">New here? <button id="signupFromLogin" class="link-btn">Create an account</button></p>
+      </div>
+    </section>
+
+    <!-- SIGN UP -->
+    <section id="signupView" class="view">
+      <div class="auth-card">
+        <h1>Create account</h1>
+        <p class="sub">It takes less than a minute.</p>
+        <form id="signupForm" novalidate>
+          <div class="field">
+            <label for="signupName">Full name</label>
+            <input type="text" id="signupName" autocomplete="name" required>
+          </div>
+          <div class="field">
+            <label for="signupEmail">Email</label>
+            <input type="email" id="signupEmail" autocomplete="email" required>
+          </div>
+          <div class="field">
+            <label for="signupUsername">Username</label>
+            <input type="text" id="signupUsername" autocomplete="username" required>
+          </div>
+          <div class="field">
+            <label for="signupPassword">Password</label>
+            <div class="pw">
+              <input type="password" id="signupPassword" autocomplete="new-password" required>
+              <button type="button" class="toggle-pw" aria-label="Show password">Show</button>
+            </div>
+            <div class="strength" aria-hidden="true"><i></i></div>
+            <small id="strengthText" class="hint">Use 8+ characters with letters and numbers.</small>
+          </div>
+          <div class="field">
+            <label for="signupConfirmPassword">Confirm password</label>
+            <input type="password" id="signupConfirmPassword" autocomplete="new-password" required>
+          </div>
+          <button type="submit" class="primary-btn full">Create account</button>
+        </form>
+        <p id="signupMessage" class="message" role="alert"></p>
+        <p class="switch-text"><button id="backFromSignup" class="link-btn">Back</button></p>
+        <p class="switch-text">Already registered? <button id="loginFromSignup" class="link-btn">Log in</button></p>
+      </div>
+    </section>
+
+    <!-- FORGOT -->
+    <section id="forgotView" class="view">
+      <div class="auth-card">
+        <h1>Reset access</h1>
+        <p class="sub">Enter the username and email you registered with.</p>
+        <form id="forgotForm" novalidate>
+          <div class="field">
+            <label for="forgotUsername">Username</label>
+            <input type="text" id="forgotUsername" required>
+          </div>
+          <div class="field">
+            <label for="forgotEmail">Email</label>
+            <input type="email" id="forgotEmail" required>
+          </div>
+          <button type="submit" class="primary-btn full">Recover account</button>
+        </form>
+        <p id="forgotMessage" class="message" role="alert"></p>
+        <p class="switch-text">Remembered it? <button id="loginFromForgot" class="link-btn">Log in</button></p>
+      </div>
+    </section>
+        <!-- RESET PASSWORD -->
+    <section id="resetPasswordView" class="view">
+      <div class="auth-card">
+
+        <h1>Create new password</h1>
+
+        <p class="sub">
+          Your account has been verified.
+          Enter a new password to continue.
+        </p>
+
+        <form id="resetPasswordForm" novalidate>
+
+          <div class="field">
+            <label for="resetNewPassword">
+              New password
+            </label>
+
+            <div class="pw">
+              <input
+                type="password"
+                id="resetNewPassword"
+                autocomplete="new-password"
+                required
+              >
+
+              <button
+                type="button"
+                class="toggle-pw"
+                aria-label="Show password"
+              >
+                Show
+              </button>
+            </div>
+          </div>
+
+
+          <div class="field">
+            <label for="resetConfirmPassword">
+              Confirm new password
+            </label>
+
+            <div class="pw">
+              <input
+                type="password"
+                id="resetConfirmPassword"
+                autocomplete="new-password"
+                required
+              >
+
+              <button
+                type="button"
+                class="toggle-pw"
+                aria-label="Show password"
+              >
+                Show
+              </button>
+            </div>
+          </div>
+
+
+          <button
+            type="submit"
+            class="primary-btn full"
+          >
+            Reset password
+          </button>
+
+        </form>
+
+
+        <p
+          id="resetPasswordMessage"
+          class="message"
+          role="alert"
+        ></p>
+
+
+        <p class="switch-text">
+
+          <button
+            type="button"
+            id="loginFromReset"
+            class="link-btn"
+          >
+            Back to login
+          </button>
+
+        </p>
+
+      </div>
+    </section>
+
+    <!-- DASHBOARD -->
+    <section id="dashboardView" class="view">
+      <div class="dashboard">
+        <aside class="sidebar">
+          <div class="user-mini">
+            <div class="avatar" id="sidebarAvatar">U</div>
+            <div><strong id="dashboardUsername">User</strong><small>Signed in</small></div>
+          </div>
+          <nav>
+            <button class="nav-btn active" data-page="profilePage">Profile</button>
+<button class="nav-btn" data-page="updatePage">Update information</button>
+<button class="nav-btn" data-page="notesPage">My Notes</button>
+<button class="nav-btn" data-page="settingsPage">Settings</button>
+<button id="logoutBtn" class="nav-btn logout">Log out</button>
+          </nav>
+        </aside>
+
+        <div class="dashboard-content">
+
+          <div id="profilePage" class="dashboard-page active-page">
+            <h1>My profile</h1>
+            <div class="profile-card">
+              <div class="large-avatar" id="profileAvatar">U</div>
+              <div>
+                <h2 id="profileName">User</h2>
+                <p id="profileEmail">user@example.com</p>
+                <p id="profileUsername" class="muted">@username</p>
+              </div>
+            </div>
+            <div class="panel history">
+              <h3>Recent logins</h3>
+              <ul id="historyList"><li class="muted">No logins yet.</li></ul>
+            </div>
+          </div>
+
+          <div id="updatePage" class="dashboard-page">
+            <h1>Update information</h1>
+            <form class="panel" id="updateForm" novalidate>
+              <div class="field"><label for="updateName">Full name</label><input type="text" id="updateName" required></div>
+              <div class="field"><label for="updateEmail">Email</label><input type="email" id="updateEmail" required></div>
+              <button type="submit" class="primary-btn">Save changes</button>
+            </form>
+          </div>
+          <!-- ============================= -->
+          <!-- MY NOTES PAGE -->
+          <!-- ============================= -->
+
+          <div id="notesPage" class="dashboard-page">
+
+  <h1>My Notes</h1>
+
+  <!-- CREATE / EDIT NOTE -->
+  <div class="panel">
+
+    <h3 id="noteFormTitle">Create New Note</h3>
+
+    <div class="field">
+      <label for="noteTitle">Title</label>
+      <input
+        type="text"
+        id="noteTitle"
+        placeholder="Example: DSA Revision"
+      >
+    </div>
+
+    <div class="field">
+      <label for="noteContent">Content</label>
+      <textarea
+        id="noteContent"
+        rows="7"
+        placeholder="Write your note here..."
+      ></textarea>
+    </div>
+
+    <button
+      type="button"
+      class="primary-btn"
+      id="saveNoteBtn"
+    >
+      Create Note
+    </button>
+
+    <button
+      type="button"
+      class="secondary-btn"
+      id="cancelEditBtn"
+      hidden
+    >
+      Cancel Edit
+    </button>
+
+    <p
+      id="noteMessage"
+      class="message"
+      role="status"
+    ></p>
+
+  </div>
+
+
+  <!-- SAVED NOTES -->
+  <div class="panel">
+
+    <h3>Your Saved Notes</h3>
+
+    <div id="notesList">
+      <p class="muted">No notes yet.</p>
+    </div>
+
+  </div>
+
+</div>
+          <div id="settingsPage" class="dashboard-page">
+            <h1>Settings</h1>
+            <button class="secondary-btn" id="showPasswordForm">Change password</button>
+            <form class="panel" id="passwordForm" novalidate hidden>
+              <h3>Change password</h3>
+              <div class="field"><label for="oldPassword">Current password</label><input type="password" id="oldPassword" autocomplete="current-password" required></div>
+              <div class="field"><label for="newPassword">New password</label><input type="password" id="newPassword" autocomplete="new-password" required></div>
+              <div class="field"><label for="newPassword2">Confirm new password</label><input type="password" id="newPassword2" autocomplete="new-password" required></div>
+              <button type="submit" class="primary-btn">Change password</button>
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+<script src="script.js"></script>
+</body>
+</html>
